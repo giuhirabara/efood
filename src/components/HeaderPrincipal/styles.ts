@@ -26,3 +26,12 @@ export const Imagem = styled.img`
   margin-bottom: 64.5px;
   margin-top: 48px;
 `
+export const Botao = styled.button`
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  color: ${cores.corPincipal};
+  cursor: pointer;
+`
