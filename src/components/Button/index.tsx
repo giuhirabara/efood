@@ -2,16 +2,26 @@ import {
   ButtonLink,
   ButtonContainer,
   ButtonAddToCart,
-  ButtonLearnMore
+  ButtonLearnMore,
+  ButtonreadMoreProduct,
+  ButtonClosed
 } from './styles'
 
 type Props = {
-  type: 'button' | 'link' | 'addToCart' | 'readMore'
+  type:
+    | 'button'
+    | 'link'
+    | 'addToCart'
+    | 'readMore'
+    | 'readMoreProduct'
+    | 'fechar'
   title: string
   to: string
   onClick?: () => void
   children: string
 }
+
+import close from '../../images/close.png'
 
 const Button = ({ type, title, to, onClick, children }: Props) => {
   if (type === 'button') {
@@ -35,6 +45,27 @@ const Button = ({ type, title, to, onClick, children }: Props) => {
       <ButtonLearnMore to={to} title={title}>
         Leia Mais
       </ButtonLearnMore>
+    )
+  }
+
+  if (type === 'fechar') {
+    return (
+      <ButtonClosed to={to} title={title}>
+        <img src={close} alt="fechar" />
+      </ButtonClosed>
+    )
+  }
+
+  if (type === 'readMoreProduct') {
+    return (
+      <ButtonreadMoreProduct
+        to={to}
+        type="button"
+        title={title}
+        onClick={onClick}
+      >
+        {children}
+      </ButtonreadMoreProduct>
     )
   }
 
