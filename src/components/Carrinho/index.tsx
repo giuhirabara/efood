@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import Item from '../../components/Item'
 import { Container, Conteudo, Botao, CarrinhoContainer } from './styles'
+import FormEntrega from '../Entrega'
 
 type itemProps = {
   openCarrinho: boolean
 }
 
 const Carrinho = ({ openCarrinho }: itemProps) => {
+  const [abrirSidBar, setSidBarOpen] = useState(false)
+
   if (openCarrinho) {
     return (
       <CarrinhoContainer>
@@ -19,8 +23,11 @@ const Carrinho = ({ openCarrinho }: itemProps) => {
             <p>Valor total</p>
             <p>R$ 182,70</p>
           </Conteudo>
-          <Botao>Continuar com a entrega</Botao>
+          <Botao onClick={() => setSidBarOpen(true)}>
+            Continuar com a entrega
+          </Botao>
         </Container>
+        <FormEntrega SidBarOpen={abrirSidBar} />
       </CarrinhoContainer>
     )
   }

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Carrinho from '../Carrinho'
 
 function HeaderPrincipal() {
-  const [openCarrinho, setOpenCarrinho] = useState(false)
+  const [abrirCarrinho, setOpenCarrinho] = useState(false)
 
   return (
     <>
@@ -19,7 +19,7 @@ function HeaderPrincipal() {
           </HeaderContainer>
         </div>
       </HeaderBar>
-      <Carrinho openCarrinho={openCarrinho} />
+      <Carrinho openCarrinho={abrirCarrinho} />
     </>
   )
 }

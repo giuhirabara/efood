@@ -16,7 +16,11 @@ type DetalhesProps = {
 }
 
 const Detalhes = ({ isOpen }: DetalhesProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  function handleCloseModal() {
+    setIsModalOpen(false)
+  }
 
   if (isOpen) {
     return (
@@ -27,7 +31,7 @@ const Detalhes = ({ isOpen }: DetalhesProps) => {
             <Botao>
               <Titulo>Pizza Marguerita</Titulo>
               <Button
-                onClick={() => setIsModalOpen(false)}
+                onClick={handleCloseModal}
                 type="fechar"
                 to=""
                 title="Fechar a página"
